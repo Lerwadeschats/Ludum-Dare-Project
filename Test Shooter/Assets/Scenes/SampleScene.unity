@@ -913,8 +913,8 @@ MonoBehaviour:
     type: 0
     reoladTime: 0
     damage: 10
-    camshake: 1
-    timeShake: 6
+    camshake: 0.5
+    timeShake: 2
     attakSound: {fileID: 8300000, guid: 5350cb5be9f2001428e7aabd1e0b2850, type: 3}
     bullets: {fileID: 8876893977811157382, guid: 062851da303ff53419d5dd5d5f11bf13, type: 3}
     bulletShoted: 100
@@ -1295,6 +1295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8473452051100369374}
+  - component: {fileID: 8473452051100369375}
   m_Layer: 0
   m_Name: Slasher
   m_TagString: Untagged
@@ -1318,3 +1319,16 @@ Transform:
   m_Father: {fileID: 1414350115}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &8473452051100369375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4733638067588436219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285be6fc85c9e4541b8c416011d16c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damages: 0

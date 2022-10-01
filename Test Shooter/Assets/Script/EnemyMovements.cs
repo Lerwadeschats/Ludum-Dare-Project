@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovements : MonoBehaviour
 {
-    public int enemyHP;
+    public float enemyHP;
     public int enemyDamages;
     public int enemySpeed;
     public int enemyStartSpawningWave;
@@ -20,7 +20,20 @@ public class EnemyMovements : MonoBehaviour
 
     void Update()
     {
-
+        if(enemyHP <= 0)
+        {
+            Death();
+        }
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
+    }
+
+    public void TakeDamages(float damages)
+    {
+        enemyHP -= damages;
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject);
     }
 }
