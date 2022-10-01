@@ -12,6 +12,8 @@ public class attack : MonoBehaviour
     public GameObject slash;
     public Transform bulletsOut;
 
+    public AudioSource audio;
+
     public List<Arme> list = new List<Arme>();
 
     bool refresh = false;
@@ -35,7 +37,7 @@ public class attack : MonoBehaviour
                 
             }
             StartCoroutine(ReloadTime());
-
+            audio.PlayOneShot(list[selectedWeapon].attakSound);
             cam.time = list[selectedWeapon].timeShake;
         }
         if (Input.GetKeyDown(KeyCode.Space) && refresh == false && list[selectedWeapon].type == Arme.Type.Corps)
@@ -88,6 +90,8 @@ public class attack : MonoBehaviour
         [Space]
         public float camshake;
         public float timeShake;
+        [Space]
+        public AudioClip attakSound;
         
         [Space]
         [Header("Bullets")]
