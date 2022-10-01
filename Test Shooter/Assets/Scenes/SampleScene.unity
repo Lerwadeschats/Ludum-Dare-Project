@@ -496,7 +496,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867583392}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a276edca6550ada48a3d9ab9fdee888a, type: 3}
   m_Name: 
@@ -506,7 +506,7 @@ MonoBehaviour:
   - {fileID: 3272856481314742559, guid: a989f10c0808d8648b08fdc7df2a4cc4, type: 3}
   enemiesToSpawn: []
   numberSpawnsFirstWave: 3
-  maxSpawnsByWave: 0
+  maxSpawnsByWave: 20
   addedEachWave: 3
   waveNumber: 1
   timerWave: 0
@@ -908,17 +908,17 @@ MonoBehaviour:
   bulletsOut: {fileID: 1548324898}
   audio: {fileID: 1414350120}
   list:
-  - name: ShotGun
+  - name: BOUM
     type: 0
-    reoladTime: 1
+    reoladTime: 0
     damage: 10
-    camshake: 0.4
-    timeShake: 0.3
+    camshake: 1
+    timeShake: 6
     attakSound: {fileID: 8300000, guid: 5350cb5be9f2001428e7aabd1e0b2850, type: 3}
     bullets: {fileID: 8876893977811157382, guid: 062851da303ff53419d5dd5d5f11bf13, type: 3}
-    bulletShoted: 9
+    bulletShoted: 100
     spreadness: 45
-    speed: 1.79
+    speed: 100
     lifeTime: 0.4
     tamere: 0
 --- !u!82 &1414350120
