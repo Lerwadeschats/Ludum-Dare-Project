@@ -11,7 +11,7 @@ public class attack : MonoBehaviour
     public CamShake cam;
     public GameObject slash;
     public Transform bulletsOut;
-
+    int timeattact = 0;
     public AudioSource audio;
 
     public List<Arme> list = new List<Arme>();
@@ -40,22 +40,52 @@ public class attack : MonoBehaviour
             audio.PlayOneShot(list[selectedWeapon].attakSound);
             cam.time = list[selectedWeapon].timeShake;
         }
+
+
         if (Input.GetKeyDown(KeyCode.Space) && refresh == false && list[selectedWeapon].type == Arme.Type.Corps)
         {
             refresh = true;
             //Attacks
             StartCoroutine(ReloadTime());
         }
+
         if (list[selectedWeapon].type == Arme.Type.Slash)
         {
+            print("slash");
             slash.SetActive(true);
+            if(timeattact == 0)
+            {
+                slash.transform.eulerAngles = new Vector3(0,0, list[selectedWeapon].minAngleAttack + transform.eulerAngles.z);
+            }
+        }
+        else
+        {
+            //print("UNNNNNslash");
+            slash.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Space) && refresh == false && list[selectedWeapon].type == Arme.Type.Slash)
         {
             refresh = true;
-            slashME();
-            StartCoroutine(ReloadTime());
+            
+            //StartCoroutine(ReloadTime());
         }
+        if(refresh && list[selectedWeapon].type == Arme.Type.Slash)
+        {
+
+            timeattact += list[selectedWeapon].attackSpeed;
+            print(timeattact);
+            slash.transform.localRotation = Quaternion.Euler(0, 0, timeattact);
+            //slash.transform.localEulerAngles += new Vector3(0, 0, slash.transform.localRotation.eulerAngles.z + list[selectedWeapon].attackSpeed);
+            //slash.transform.localEulerAngles += new Vector3(0, 0, list[selectedWeapon].attackSpeed);
+            if(slash.transform.localEulerAngles.z >= list[selectedWeapon].maxAngleAttack)
+            {
+                print("TOURE");
+                refresh = false;
+                timeattact = 0;
+            }
+        }
+
+
         if (Input.GetKeyDown(KeyCode.Space) && refresh == false && list[selectedWeapon].type == Arme.Type.Else)
         {
             refresh = true;
@@ -63,15 +93,7 @@ public class attack : MonoBehaviour
             StartCoroutine(ReloadTime());
         }
     }
-    public void slashME()
-    {
-        var timer = list[selectedWeapon].reoladTime;
-        if(timer > 0)
-        {
-            timer -= Time.deltaTime;
-            print(timer);
-        }
-    }
+
     public IEnumerator ReloadTime()
     {
         yield return new WaitForSeconds(list[selectedWeapon].reoladTime);
@@ -104,8 +126,11 @@ public class attack : MonoBehaviour
         public float lifeTime;
         [Space]
         [Header("Slash")]
-        public int tamere;
-
+        [Range(45,90)]
+        public int minAngleAttack;
+        [Range(90,180)]
+        public int maxAngleAttack;
+        public int attackSpeed;
     }
 }
 
