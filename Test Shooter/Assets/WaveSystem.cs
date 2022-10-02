@@ -8,6 +8,8 @@ public class WaveSystem : MonoBehaviour
     public List<GameObject> diffEnemies = new List<GameObject>();//Ennemis différents
     public List<GameObject> enemiesToSpawn = new List<GameObject>(); //Ennemis qui spawnent pendant la wave actuelle
 
+    public int numberOfEnemies;
+
     [Header("Wave Editor")]
     public int numberSpawnsFirstWave;
     public int maxSpawnsByWave;
@@ -26,6 +28,8 @@ public class WaveSystem : MonoBehaviour
     [Header("UI")]
     public GameObject timer;
     TextMeshProUGUI timeText;
+    public GameObject enemyCounter;
+    TextMeshProUGUI counterText;
 
     PlayerController player;
     void Start()
@@ -33,11 +37,13 @@ public class WaveSystem : MonoBehaviour
         canSpawn = true;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         timeText = timer.transform.GetComponent<TextMeshProUGUI>();
+        counterText = enemyCounter.transform.GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
-        timeText.text = "Vague " + waveNumber + " dans: " + timerWave;
+        timeText.text = "Wave " + waveNumber + " in: " + timerWave;
+        counterText.text = "Number of enemies: " + numberOfEnemies;
         if (canSpawn)
         {
             
@@ -51,9 +57,10 @@ public class WaveSystem : MonoBehaviour
             for(int i = 0; i < numberSpawnsFirstWave; i ++)
             {
 
-               GameObject spawningEnemy = enemiesToSpawn[Random.Range(0, enemiesToSpawn.Count)];
-
-               Instantiate(spawningEnemy, new Vector2(Random.Range(xMinMap, xMaxMap), Random.Range(yMinMap, yMaxMap)), spawningEnemy.transform.rotation);
+                GameObject spawningEnemy = enemiesToSpawn[Random.Range(0, enemiesToSpawn.Count)];
+                numberOfEnemies++;
+                Instantiate(spawningEnemy, new Vector2(Random.Range(xMinMap, xMaxMap), Random.Range(yMinMap, yMaxMap)), spawningEnemy.transform.rotation);
+                
             }
             canSpawn = false;
             StartCoroutine(Wave());

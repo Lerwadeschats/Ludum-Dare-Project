@@ -9,6 +9,8 @@ public class EnemyMovements : MonoBehaviour
     public int enemySpeed;
     public int enemyStartSpawningWave;
 
+    WaveSystem waveSys;
+
     Rigidbody2D rbEnemy;
 
     GameObject player;
@@ -16,12 +18,14 @@ public class EnemyMovements : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        waveSys = GameObject.FindGameObjectWithTag("WaveSystem").GetComponent<WaveSystem>();
     }
 
     void Update()
     {
         if(enemyHP <= 0)
         {
+            
             Death();
         }
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
@@ -34,6 +38,9 @@ public class EnemyMovements : MonoBehaviour
 
     public void Death()
     {
+        waveSys.numberOfEnemies--;
         Destroy(gameObject);
+        
     }
+
 }
