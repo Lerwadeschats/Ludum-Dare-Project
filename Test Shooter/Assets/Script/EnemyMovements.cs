@@ -15,10 +15,12 @@ public class EnemyMovements : MonoBehaviour
 
     GameObject player;
 
+    Heart heart;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         waveSys = GameObject.FindGameObjectWithTag("WaveSystem").GetComponent<WaveSystem>();
+        heart = FindObjectOfType<Heart>();
     }
 
     void Update()
@@ -30,7 +32,17 @@ public class EnemyMovements : MonoBehaviour
         }
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
     }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        print("tagranderace");
+        if(collision.gameObject.CompareTag("hurtbox"))
+        {
+            print("tarasss");
+            heart.demic();
+            player.GetComponent<PlayerController>().hpPlayer -= 1;
 
+        }
+    }
     public void TakeDamages(float damages)
     {
         enemyHP -= damages;

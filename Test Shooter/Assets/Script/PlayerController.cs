@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public int speedPlayer;
-    public int hpPlayer = 20;
+    public int hpPlayer = 12;
 
     public Rigidbody2D rbPlayer;
     public Camera cam;

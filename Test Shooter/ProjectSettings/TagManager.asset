@@ -7,6 +7,7 @@ TagManager:
   - Ball
   - Enemy
   - WaveSystem
+  - hurtbox
   layers:
   - Default
   - TransparentFX
