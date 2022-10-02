@@ -15,10 +15,15 @@ public class EnemyMovements : MonoBehaviour
 
     GameObject player;
 
+    Hearts heart;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+<<<<<<< Updated upstream
         waveSys = GameObject.FindGameObjectWithTag("WaveSystem").GetComponent<WaveSystem>();
+=======
+        heart = FindObjectOfType<Hearts>();
+>>>>>>> Stashed changes
     }
 
     void Update()
@@ -30,7 +35,14 @@ public class EnemyMovements : MonoBehaviour
         }
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
     }
-
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject == player)
+        {
+            heart.demic();
+            player.GetComponent<PlayerController>().hpPlayer -= 1;
+        }
+    }
     public void TakeDamages(float damages)
     {
         enemyHP -= damages;
