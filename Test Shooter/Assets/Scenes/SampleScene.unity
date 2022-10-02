@@ -1681,6 +1681,7 @@ GameObject:
   - component: {fileID: 1414350119}
   - component: {fileID: 1414350117}
   - component: {fileID: 1414350120}
+  - component: {fileID: 1414350121}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1772,6 +1773,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedPlayer: 10
   hpPlayer: 12
+  xpPlayer: 0
+  lvlPlayer: 1
   rbPlayer: {fileID: 1414350117}
   cam: {fileID: 519420031}
 --- !u!50 &1414350117
@@ -1940,6 +1943,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &1414350121
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414350113}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.4
 --- !u!1 &1548324897
 GameObject:
   m_ObjectHideFlags: 0

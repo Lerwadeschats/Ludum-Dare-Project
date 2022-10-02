@@ -8,6 +8,10 @@ public class EnemyMovements : MonoBehaviour
     public int enemyDamages;
     public int enemySpeed;
     public int enemyStartSpawningWave;
+    public float enemyExp;
+
+    public GameObject littleExpPoint;
+    public GameObject bigExpPoint;
 
     WaveSystem waveSys;
 
@@ -48,6 +52,20 @@ public class EnemyMovements : MonoBehaviour
 
     public void Death()
     {
+        if(enemyExp >= 50)
+        {
+            for(int i = 0; i < enemyExp/50; i++)
+            {
+                Instantiate(bigExpPoint, gameObject.transform.position, bigExpPoint.transform.rotation);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < enemyExp / 10; i++)
+            {
+                Instantiate(littleExpPoint, gameObject.transform.position, littleExpPoint.transform.rotation);
+            }
+        }
         waveSys.numberOfEnemies--;
         Destroy(gameObject);
         

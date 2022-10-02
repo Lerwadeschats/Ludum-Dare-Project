@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     public int speedPlayer;
     public int hpPlayer = 12;
+    public float xpPlayer = 0;
+    public int lvlPlayer = 1;
+    float xpNeeded = 100;
 
     public Rigidbody2D rbPlayer;
     public Camera cam;
@@ -37,7 +40,10 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Dashing());
         }
-
+        if(xpPlayer >= xpNeeded)
+        {
+            GainLevel();
+        }
     }
     private void FixedUpdate()
     {
@@ -61,5 +67,17 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+    }
+
+    public void GainExp(float expGained)
+    {
+        xpPlayer += expGained;
+    }
+    public void GainLevel()
+    {
+        lvlPlayer += 1;
+        xpPlayer -= xpNeeded;
+        xpNeeded = (xpNeeded + 50) * 1.3f;
+        //Arbre compétence + 1 choix
     }
 }

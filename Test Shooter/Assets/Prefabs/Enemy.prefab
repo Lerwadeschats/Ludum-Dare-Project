@@ -129,6 +129,9 @@ MonoBehaviour:
   enemyDamages: 0
   enemySpeed: 8
   enemyStartSpawningWave: 1
+  enemyExp: 20
+  littleExpPoint: {fileID: 9143646825448322046, guid: 79ee7cf0526f7bd42898b5c83961bb55, type: 3}
+  bigExpPoint: {fileID: 9143646825448322046, guid: 5d23326f84f95fd4ea5df061571795a8, type: 3}
 --- !u!50 &3272856481314742546
 Rigidbody2D:
   serializedVersion: 4
