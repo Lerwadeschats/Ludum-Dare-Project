@@ -34,9 +34,8 @@ public class EnemyMovements : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("hurtbox"))
+        if(collision.gameObject.CompareTag("hurtbox")   )
         {
-            print("tarasss");
             heart.demic();
             player.GetComponent<PlayerController>().hpPlayer -= 1;
 
