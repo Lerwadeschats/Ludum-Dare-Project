@@ -97,13 +97,11 @@ public class attack : MonoBehaviour
         {
 
             timeattact += list[selectedWeapon].attackSpeed;
-            print(timeattact);
             slash.transform.localRotation = Quaternion.Euler(0, 0, timeattact);
             //slash.transform.localEulerAngles += new Vector3(0, 0, slash.transform.localRotation.eulerAngles.z + list[selectedWeapon].attackSpeed);
             //slash.transform.localEulerAngles += new Vector3(0, 0, list[selectedWeapon].attackSpeed);
             if(slash.transform.localEulerAngles.z >= list[selectedWeapon].maxAngleAttack)
             {
-                print("TOURE");
                 refresh = false;
                 timeattact = 0;
             }
