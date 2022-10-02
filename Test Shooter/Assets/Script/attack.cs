@@ -39,7 +39,7 @@ public class attack : MonoBehaviour
             selectedWeapon = 1;
 
         }
-        if (Input.GetKeyDown(KeyCode.Space) && refresh == false && list[selectedWeapon].type == Arme.Type.Tire)
+        if (Input.GetMouseButtonDown(0) && refresh == false && list[selectedWeapon].type == Arme.Type.Tire)
         {
             refresh = true;
             for(int i = 1; i <= list[selectedWeapon].bulletShoted; i++)
@@ -56,7 +56,7 @@ public class attack : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && refresh == false && list[selectedWeapon].type == Arme.Type.Corps)
+        if (Input.GetMouseButtonDown(0) && refresh == false && list[selectedWeapon].type == Arme.Type.Corps)
         {
             refresh = true;
             //Attacks
@@ -80,7 +80,7 @@ public class attack : MonoBehaviour
             //print("UNNNNNslash");
             slash.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.Space) && refresh == false && list[selectedWeapon].type == Arme.Type.Slash)
+        if (Input.GetMouseButtonDown(0) && refresh == false && list[selectedWeapon].type == Arme.Type.Slash)
         {
             audio.PlayOneShot(list[selectedWeapon].attakSound);
             refresh = true;
