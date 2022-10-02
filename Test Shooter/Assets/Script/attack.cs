@@ -51,7 +51,10 @@ public class attack : MonoBehaviour
 
             }
             StartCoroutine(ReloadTime());
-            audio.PlayOneShot(list[selectedWeapon].attakSound);
+            for(int i = 0; i < list[selectedWeapon].attakSound.Count; i++)
+            {
+            audio.PlayOneShot(list[selectedWeapon].attakSound[i]);
+            }
             cam.time = list[selectedWeapon].timeShake;
         }
 
@@ -82,7 +85,10 @@ public class attack : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && refresh == false && list[selectedWeapon].type == Arme.Type.Slash)
         {
-            audio.PlayOneShot(list[selectedWeapon].attakSound);
+            for (int i = 0; i < list[selectedWeapon].attakSound.Count; i++)
+            {
+                audio.PlayOneShot(list[selectedWeapon].attakSound[i]);
+            }
             refresh = true;
             trail.enabled = true;
             //StartCoroutine(ReloadTime());
@@ -131,7 +137,7 @@ public class attack : MonoBehaviour
         public float camshake;
         public float timeShake;
         [Space]
-        public AudioClip attakSound;
+        public List<AudioClip> attakSound;
         
         [Space]
         [Header("Bullets")]
