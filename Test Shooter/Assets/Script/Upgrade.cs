@@ -37,6 +37,13 @@ public class Upgrade : MonoBehaviour
 
         }
     }
+    public void Lock()
+    {
+        image.color = Color.black;
+        isLocked = true;
+        button.enabled = false;
+
+    }
 
     // Update is called once per frame
     void Update()
