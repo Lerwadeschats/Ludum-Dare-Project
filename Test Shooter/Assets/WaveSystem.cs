@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class WaveSystem : MonoBehaviour
 {
@@ -22,16 +23,21 @@ public class WaveSystem : MonoBehaviour
 
     bool canSpawn;
 
+    [Header("UI")]
+    public GameObject timer;
+    TextMeshProUGUI timeText;
+
     PlayerController player;
     void Start()
     {
         canSpawn = true;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        timeText = timer.transform.GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
-        
+        timeText.text = "Vague " + waveNumber + " dans: " + timerWave;
         if (canSpawn)
         {
             
@@ -79,6 +85,7 @@ public class WaveSystem : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             timerWave -= 1;
+            
         }
         
     }
