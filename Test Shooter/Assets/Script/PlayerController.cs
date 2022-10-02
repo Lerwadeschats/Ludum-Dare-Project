@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         rbPlayer = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.transform.Find("Sprite").GetComponent<Animator>();
         anim.Play("playerLeft");
-        slasher = gameObject.transform.Find("Slasher").gameObject;
+        //slasher = gameObject.transform.Find("Slasher").gameObject;
     }
 
     // Update is called once per frame
@@ -102,8 +102,8 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Down", false);
             anim.SetBool("Right", false);
             anim.SetBool("Left", false);
-            slasher.transform.position = (Vector3) playerPos + new Vector3(0, 3.98f, 0);
-            slasher.transform.eulerAngles = new Vector3(0, 0, 90);
+            //slasher.transform.position = (Vector3) playerPos + new Vector3(0, 3.98f, 0);
+            ////slasher.transform.eulerAngles = new Vector3(0, 0, 90);
 
         }
         else if ((Mathf.Abs(mousePos.x - playerPos.x) > Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.x - playerPos.x < 0))
@@ -113,8 +113,8 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Down", false);
             anim.SetBool("Right", false);
             anim.SetBool("Left", true);
-            slasher.transform.position = (Vector3)playerPos + new Vector3(-3.98f, 0, 0);
-            slasher.transform.eulerAngles = new Vector3(0, 0, 0);
+            //slasher.transform.position = (Vector3)playerPos + new Vector3(-3.98f, 0, 0);
+            //slasher.transform.eulerAngles = new Vector3(0, 0, 0);
         }
         else if ((Mathf.Abs(mousePos.x - playerPos.x) < Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.y - playerPos.y < 0))
         {
@@ -123,8 +123,8 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Down", true);
             anim.SetBool("Right", false);
             anim.SetBool("Left", false);
-            slasher.transform.position = (Vector3)playerPos + new Vector3(0, -3.98f, 0);
-            slasher.transform.eulerAngles = new Vector3(0, 0, 270);
+            //slasher.transform.position = (Vector3)playerPos + new Vector3(0, -3.98f, 0);
+            //slasher.transform.eulerAngles = new Vector3(0, 0, 270);
         }
         else
         {
@@ -133,8 +133,8 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Down", false);
             anim.SetBool("Right", true);
             anim.SetBool("Left", false);
-            slasher.transform.position = (Vector3) playerPos +new Vector3(3.98f, 0, 0);
-            slasher.transform.eulerAngles = new Vector3(0, 0, 180);
+            //slasher.transform.position = (Vector3) playerPos +new Vector3(3.98f, 0, 0);
+            //slasher.transform.eulerAngles = new Vector3(0, 0, 180);
         }
     }
 }

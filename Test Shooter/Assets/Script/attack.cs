@@ -74,8 +74,8 @@ public class attack : MonoBehaviour
             if(timeattact == 0)
             {
                 trail.enabled = false;
-                slash.transform.eulerAngles = new Vector3(0,0, list[selectedWeapon].minAngleAttack + transform.eulerAngles.z);
-                slash.transform.Find("Slash").GetComponent<DamagesCollision>().damages = list[selectedWeapon].damage;
+                //slash.transform.eulerAngles = new Vector3(0,0, list[selectedWeapon].minAngleAttack + transform.eulerAngles.z);
+                //slash.transform.Find("Slash").GetComponent<DamagesCollision>().damages = list[selectedWeapon].damage;
             }
         }
         else
