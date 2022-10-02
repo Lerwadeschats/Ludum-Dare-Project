@@ -63,6 +63,7 @@ public class attack : MonoBehaviour
             StartCoroutine(ReloadTime());
         }
 
+
         if (list[selectedWeapon].type == Arme.Type.Slash)
         {
             //print("slash");
@@ -81,6 +82,7 @@ public class attack : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && refresh == false && list[selectedWeapon].type == Arme.Type.Slash)
         {
+            audio.PlayOneShot(list[selectedWeapon].attakSound);
             refresh = true;
             trail.enabled = true;
             //StartCoroutine(ReloadTime());
