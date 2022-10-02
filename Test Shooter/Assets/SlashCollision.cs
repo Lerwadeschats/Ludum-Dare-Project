@@ -8,10 +8,10 @@ public class SlashCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.transform.Find("Slash").tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy")
         {
-            
-            collision.gameObject.transform.Find("Slash").GetComponent<EnemyMovements>().TakeDamages(damages);
+
+            collision.gameObject.GetComponent<EnemyMovements>().TakeDamages(damages);
         }
     }
 }
