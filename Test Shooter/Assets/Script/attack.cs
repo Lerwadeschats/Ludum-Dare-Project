@@ -9,8 +9,12 @@ public class attack : MonoBehaviour
     public int selectedWeapon = 0;
 
     public CamShake cam;
+
     public GameObject slash;
+    public TrailRenderer trail;
+
     public Transform bulletsOut;
+    
     int timeattact = 0;
     public AudioSource audio;
 
@@ -26,7 +30,15 @@ public class attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            selectedWeapon = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            selectedWeapon = 1;
+
+        }
         if (Input.GetKeyDown(KeyCode.Space) && refresh == false && list[selectedWeapon].type == Arme.Type.Tire)
         {
             refresh = true;
@@ -57,6 +69,7 @@ public class attack : MonoBehaviour
             slash.SetActive(true);
             if(timeattact == 0)
             {
+                trail.enabled = false;
                 slash.transform.eulerAngles = new Vector3(0,0, list[selectedWeapon].minAngleAttack + transform.eulerAngles.z);
                 slash.GetComponent<SlashCollision>().damages = list[selectedWeapon].damage;
             }
@@ -69,7 +82,7 @@ public class attack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && refresh == false && list[selectedWeapon].type == Arme.Type.Slash)
         {
             refresh = true;
-            
+            trail.enabled = true;
             //StartCoroutine(ReloadTime());
         }
         if(refresh && list[selectedWeapon].type == Arme.Type.Slash)
