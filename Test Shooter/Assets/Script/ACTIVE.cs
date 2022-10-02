@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.UIElements;
 
 public class ACTIVE : MonoBehaviour
 {
@@ -20,15 +20,18 @@ public class ACTIVE : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A) && isActavie == false)
         {
-            print("a");
+            print(tree.active);
             tree.SetActive(true);
+            Time.timeScale = 0;
+            print(tree.active);
             isActavie = true;
         }
-        if (Input.GetKeyDown(KeyCode.A) && isActavie == true)
+        else if (Input.GetKeyDown(KeyCode.A) && isActavie == true)
         {
+            Time.timeScale = 1;
             tree.SetActive(false);
             isActavie = false;
         }
-
+        //PD
     }
 }
