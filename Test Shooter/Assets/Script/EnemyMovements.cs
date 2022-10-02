@@ -34,7 +34,6 @@ public class EnemyMovements : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        print("tagranderace");
         if(collision.gameObject.CompareTag("hurtbox"))
         {
             print("tarasss");
