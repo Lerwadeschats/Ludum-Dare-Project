@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
     {
         lvlPlayer += 1;
         xpPlayer -= xpNeeded;
-        xpNeeded = (xpNeeded + 50) * 1.3f;
+        xpNeeded = (xpNeeded + 25) * 1.3f;
         skillPoint++;
     }
 

@@ -81,7 +81,8 @@ public class WaveSystem : MonoBehaviour
         waveNumber += 1;
         if(numberSpawnsFirstWave < maxSpawnsByWave)
         {
-            numberSpawnsFirstWave += addedEachWave;
+            print(Mathf.RoundToInt(curve.Evaluate(waveNumber)));
+            numberSpawnsFirstWave += Mathf.RoundToInt(curve.Evaluate(waveNumber));
             addedEachWave++;
         }
         else

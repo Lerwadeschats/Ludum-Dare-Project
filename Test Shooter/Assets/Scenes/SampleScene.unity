@@ -4001,6 +4001,48 @@ MonoBehaviour:
   - {fileID: 3272856481314742559, guid: 6996702f4a22f874e94db79e8a43a68d, type: 3}
   enemiesToSpawn: []
   numberOfEnemies: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 2.9657593
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 4.989429
+      value: 8.16903
+      inSlope: 1.3274367
+      outSlope: -3.6488292
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.4514219
+    - serializedVersion: 3
+      time: 10.013089
+      value: 11.43466
+      inSlope: 2.9313052
+      outSlope: -3.8371518
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.16366701
+      outWeight: 0.03751345
+    - serializedVersion: 3
+      time: 20.022062
+      value: 20.091852
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   numberSpawnsFirstWave: 3
   maxSpawnsByWave: 20
   addedEachWave: 3
@@ -6885,7 +6927,7 @@ MonoBehaviour:
   expBar: {fileID: 810790444}
   rbPlayer: {fileID: 1414350117}
   cam: {fileID: 519420031}
-  dashPower: 50
+  dashPower: 0
   dashCooldown: 1
   waveSystem: {fileID: 867583394}
   textSkillPoint: {fileID: 1927086072}
@@ -6941,7 +6983,7 @@ MonoBehaviour:
     isObtained: 0
     isAlreadyInInventory: 0
     reoladTime: 1
-    damage: 10
+    damage: 4
     camshake: 0
     timeShake: 0.3
     attakSound:
@@ -6962,7 +7004,7 @@ MonoBehaviour:
     isObtained: 0
     isAlreadyInInventory: 0
     reoladTime: 2
-    damage: 10
+    damage: 8
     camshake: 0.1
     timeShake: 0.1
     attakSound: []
