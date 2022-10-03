@@ -4731,10 +4731,10 @@ MonoBehaviour:
   addedEachWave: 3
   waveNumber: 1
   timerWave: 0
-  xMinMap: -50
-  xMaxMap: 50
-  yMinMap: -50
-  yMaxMap: 50
+  xMinMap: -33
+  xMaxMap: 33
+  yMinMap: -33
+  yMaxMap: 33
   timer: {fileID: 1272613886}
   enemyCounter: {fileID: 1783206342}
 --- !u!1 &883422258
@@ -11218,7 +11218,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: ffcbeafb36aaeb348920c1838b718824, type: 3}
   m_Color: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
   m_FlipX: 0
