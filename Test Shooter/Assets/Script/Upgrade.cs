@@ -59,92 +59,122 @@ public class Upgrade : MonoBehaviour
         {
             attakc.csAAA.transform.localScale = new Vector3(12, 12, 12);
             print(attakc.csAAA.transform.localScale.z);
+            attakc.list[1].damage += 15;
+
         }
         else if (attakc.Cscount == 1)
         {
             attakc.csAAA.transform.localScale = new Vector3(20, 20, 20);
+            attakc.list[1].damage += 15;
+
         }
         attakc.Cscount += 1;
     }
     public void shotgun()
     {
-        if (attakc.sgcount == 0)
+        print(skillpoint.skillPoint);
+        if (isBuyed)
         {
-            attakc.list[0].isObtained = true;
-            attakc.list[0].bulletShoted = 3;
-            attakc.list[0].spreadness = 5;
-            attakc.list[0].camshake = 0.25f;
-        }
-        else if (attakc.sgcount == 1)
-        {
-            attakc.list[0].bulletShoted = 7;
-            attakc.list[0].spreadness = 15;
-            attakc.list[0].camshake = 1f;
-        }
-        else
-        {
-            attakc.list[0].bulletShoted = 30;
-            attakc.list[0].spreadness = 30;
-            attakc.list[0].camshake = 2f;
+            if (attakc.sgcount == 0)
+            {
+                attakc.list[0].isObtained = true;
+                attakc.list[0].bulletShoted = 3;
+                attakc.list[0].damage = 3;
+                attakc.list[0].spreadness = 5;
+                attakc.list[0].camshake = 0.25f;
+            }
+            else if (attakc.sgcount == 1)
+            {
+                attakc.list[0].bulletShoted = 7;
+                attakc.list[0].damage = 5;
+                attakc.list[0].spreadness = 15;
+                attakc.list[0].camshake = 1f;
+            }
+            else if (attakc.sgcount == 2)
+            {
+                attakc.list[0].bulletShoted = 30;
+                attakc.list[0].damage = 10;
+                attakc.list[0].spreadness = 30;
+                attakc.list[0].camshake = 2f;
+            }
+            attakc.sgcount += 1;
+            print(attakc.sgcount);
         }
 
-        attakc.sgcount += 1;
-        print(attakc.sgcount);
+        
     }
     public void Ray()
     {
-        if (attakc.WallCount == 0)
+        if (isBuyed)
         {
-            attakc.list[2].isObtained = true;
-            attakc.list[2].bulletShoted = 1;
+            if (attakc.WallCount == 0)
+            {
+                attakc.list[2].isObtained = true;
+                attakc.list[2].bulletShoted = 1;
+            }
+            else
+            {
+                attakc.list[2].speed = 30;
+                attakc.list[2].reoladTime = 8;
+            }
+            attakc.WallCount += 1;
         }
-        else
-        {
-            attakc.list[2].speed = 30;
-            attakc.list[2].reoladTime = 8;
-        }
-        attakc.WallCount += 1;
     }
     public void setDash(float power)
     {
-        skillpoint.dashPower = power;
+        if (isBuyed)
+        {
+            skillpoint.dashPower = power;
+        }
     }
     public void setDASHCD(float CD)
     {
-        skillpoint.dashCooldown = CD;
+        if (isBuyed)
+        {
+            skillpoint.dashCooldown = CD;
+        }
     }
     public void setSpeed(float sped)
     {
-        skillpoint.speedPlayer += sped;
+        if (isBuyed)
+        {
+            skillpoint.speedPlayer += sped;
+        }
     }
     public void setBerserk(bool berserk)
     {
-        berserker.berserk = berserk;
+        if (isBuyed)
+        {
+            berserker.berserk = berserk;
+        }
     }
     public void setHonk(bool honk)
     {
-        honker.honkEnabled = honk;
+        if (isBuyed)
+        {
+            honker.honkEnabled = honk;
+        }
     }
     public void AddLife()
     {
-        skillpoint.hpPlayer += 2;
-        var go = Instantiate(coeur, Vector3.zero, Quaternion.identity);
-        print(go.rectTransform.position.y);
-        go.rectTransform.parent = heart.transform;
-        print(go.rectTransform.position.y);
-        go.rectTransform.position = new Vector3(80 * heart.transform.childCount - 30, 1030);
+        if (isBuyed)
+        {
+            skillpoint.hpPlayer += 2;
+            var go = Instantiate(coeur, Vector3.zero, Quaternion.identity);
+            print(go.rectTransform.position.y);
+            go.rectTransform.parent = heart.transform;
+            print(go.rectTransform.position.y);
+            go.rectTransform.position = new Vector3(80 * heart.transform.childCount - 30, 1030);
+        }
     }
 public void Lock()
     {
-        image.color = Color.black;
-        isLocked = true;
-        button.enabled = false;
-
+        if (isBuyed)
+        {
+            image.color = Color.black;
+            isLocked = true;
+            button.enabled = false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -20,7 +20,7 @@ public class ExpPoint : MonoBehaviour
     {
         if(Vector3.Distance(player.transform.position, transform.position) <= 15)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, .1f);
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, .5f);
         }
     }
 

@@ -11,6 +11,7 @@ public class WaveSystem : MonoBehaviour
     public int numberOfEnemies;
 
     [Header("Wave Editor")]
+    public AnimationCurve curve;
     public int numberSpawnsFirstWave;
     public int maxSpawnsByWave;
     public int addedEachWave = 3;
