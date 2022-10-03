@@ -12,7 +12,7 @@ public class attack : MonoBehaviour
 
     public GameObject slash;
     public TrailRenderer trail;
-
+    public alors ALLORS;
     public Transform bulletsOut;
     
     int timeattact = 0;
@@ -73,13 +73,11 @@ public class attack : MonoBehaviour
 
         if (list[selectedWeapon].type == Arme.Type.Slash)
         {
-            //print("slash");
+            ALLORS.enabled = true;
             slash.SetActive(true);
             if(timeattact == 0)
             {
                 trail.enabled = false;
-                //slash.transform.eulerAngles = new Vector3(0,0, list[selectedWeapon].minAngleAttack + transform.eulerAngles.z);
-                //slash.transform.Find("Slash").GetComponent<DamagesCollision>().damages = list[selectedWeapon].damage;
             }
         }
         else
@@ -89,6 +87,7 @@ public class attack : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && refresh == false && list[selectedWeapon].type == Arme.Type.Slash)
         {
+            ALLORS.enabled = false;
             for (int i = 0; i < list[selectedWeapon].attakSound.Count; i++)
             {
                 audio.PlayOneShot(list[selectedWeapon].attakSound[i]);
@@ -104,8 +103,11 @@ public class attack : MonoBehaviour
             slash.transform.localRotation = Quaternion.Euler(0, 0, timeattact);
             //slash.transform.localEulerAngles += new Vector3(0, 0, slash.transform.localRotation.eulerAngles.z + list[selectedWeapon].attackSpeed);
             //slash.transform.localEulerAngles += new Vector3(0, 0, list[selectedWeapon].attackSpeed);
-            if(slash.transform.localEulerAngles.z >= list[selectedWeapon].maxAngleAttack)
+            if(slash.transform.localEulerAngles.z >= list[selectedWeapon].maxAngleAttack - 45)
             {
+                ALLORS.enabled = true;
+                trail.enabled = false;
+                slash.transform.localRotation = Quaternion.Euler(0, 0, -45);
                 refresh = false;
                 timeattact = 0;
             }

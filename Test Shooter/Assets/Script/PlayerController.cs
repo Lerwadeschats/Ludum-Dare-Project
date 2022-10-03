@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
     }
     public  IEnumerator Dashing()
     {
-        Debug.Log("HEY");
+        //Debug.Log("HEY");
         isDashing = true;
         canDash = false;
         rbPlayer.velocity = new Vector2(movement.x * dashPower, movement.y * dashPower);
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
     {
         if ((Mathf.Abs(mousePos.x - playerPos.x) < Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.y - playerPos.y > 0))
         {
-            Debug.Log("Up");
+            //Debug.Log("Up");
             anim.SetBool("Up", true);
             anim.SetBool("Down", false);
             anim.SetBool("Right", false);
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
         }
         else if ((Mathf.Abs(mousePos.x - playerPos.x) > Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.x - playerPos.x < 0))
         {
-            Debug.Log("Left");
+            //Debug.Log("Left");
             anim.SetBool("Up", false);
             anim.SetBool("Down", false);
             anim.SetBool("Right", false);
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
         }
         else if ((Mathf.Abs(mousePos.x - playerPos.x) < Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.y - playerPos.y < 0))
         {
-            Debug.Log("Down");
+            //Debug.Log("Down");
             anim.SetBool("Up", false);
             anim.SetBool("Down", true);
             anim.SetBool("Right", false);
@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Right");
+            //Debug.Log("Right");
             anim.SetBool("Up", false);
             anim.SetBool("Down", false);
             anim.SetBool("Right", true);
