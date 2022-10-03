@@ -5,6 +5,7 @@ using UnityEngine;
 public class Berserk : MonoBehaviour
 {
     public bool berserk=false;
+    public bool isBerserking;
     PlayerController speed;
     GameObject ahhh;
     // Start is called before the first frame update
@@ -12,6 +13,7 @@ public class Berserk : MonoBehaviour
     {
         speed = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         ahhh = GameObject.FindGameObjectWithTag("Hearts");
+        isBerserking = false;
     }
 
     // Update is called once per frame
@@ -19,6 +21,7 @@ public class Berserk : MonoBehaviour
     {
         if (berserk == true)
         {
+            isBerserking = true;
             Debug.Log("berkserkin time");
             StartCoroutine(berserking());
             berserk = false;
@@ -32,6 +35,7 @@ public class Berserk : MonoBehaviour
         yield return new WaitForSeconds(5);
         ahhh.GetComponent<Heart>().enabled = true;
         speed.speedPlayer /= 2;
+        isBerserking = false;
         yield return new WaitForSeconds(25);
         berserk = true;
     }

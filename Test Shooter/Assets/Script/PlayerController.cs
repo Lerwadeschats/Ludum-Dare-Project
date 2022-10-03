@@ -124,46 +124,118 @@ public class PlayerController : MonoBehaviour
     }
     public void AnimationPlayer(Vector2 mousePos)
     {
-        if ((Mathf.Abs(mousePos.x - playerPos.x) < Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.y - playerPos.y > 0))
+        if (gameObject.GetComponent<Berserk>().isBerserking)
         {
-            //Debug.Log("Up");
-            anim.SetBool("Up", true);
-            anim.SetBool("Down", false);
-            anim.SetBool("Right", false);
-            anim.SetBool("Left", false);
-            //slasher.transform.position = (Vector3) playerPos + new Vector3(0, 3.98f, 0);
-            ////slasher.transform.eulerAngles = new Vector3(0, 0, 90);
+            if ((Mathf.Abs(mousePos.x - playerPos.x) < Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.y - playerPos.y > 0))
+            {
+                //Debug.Log("Up");
+                anim.SetBool("bUp", true);
+                anim.SetBool("bDown", false);
+                anim.SetBool("bRight", false);
+                anim.SetBool("bLeft", false);
+                anim.SetBool("Up", false);
+                anim.SetBool("Down", false);
+                anim.SetBool("Right", false);
+                anim.SetBool("Left", false);
 
-        }
-        else if ((Mathf.Abs(mousePos.x - playerPos.x) > Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.x - playerPos.x < 0))
-        {
-            //Debug.Log("Left");
-            anim.SetBool("Up", false);
-            anim.SetBool("Down", false);
-            anim.SetBool("Right", false);
-            anim.SetBool("Left", true);
-            //slasher.transform.position = (Vector3)playerPos + new Vector3(-3.98f, 0, 0);
-            //slasher.transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        else if ((Mathf.Abs(mousePos.x - playerPos.x) < Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.y - playerPos.y < 0))
-        {
-            //Debug.Log("Down");
-            anim.SetBool("Up", false);
-            anim.SetBool("Down", true);
-            anim.SetBool("Right", false);
-            anim.SetBool("Left", false);
-            //slasher.transform.position = (Vector3)playerPos + new Vector3(0, -3.98f, 0);
-            //slasher.transform.eulerAngles = new Vector3(0, 0, 270);
+
+            }
+            else if ((Mathf.Abs(mousePos.x - playerPos.x) > Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.x - playerPos.x < 0))
+            {
+                //Debug.Log("Left");
+                anim.SetBool("bUp", false);
+                anim.SetBool("bDown", false);
+                anim.SetBool("bRight", false);
+                anim.SetBool("bLeft", true);
+                anim.SetBool("Up", false);
+                anim.SetBool("Down", false);
+                anim.SetBool("Right", false);
+                anim.SetBool("Left", false);
+
+            }
+            else if ((Mathf.Abs(mousePos.x - playerPos.x) < Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.y - playerPos.y < 0))
+            {
+                //Debug.Log("Down");
+                anim.SetBool("bUp", false);
+                anim.SetBool("bDown", true);
+                anim.SetBool("bRight", false);
+                anim.SetBool("bLeft", false);
+                anim.SetBool("Up", false);
+                anim.SetBool("Down", false);
+                anim.SetBool("Right", false);
+                anim.SetBool("Left", false);
+
+            }
+            else
+            {
+                //Debug.Log("Right");
+                anim.SetBool("bUp", false);
+                anim.SetBool("bDown", false);
+                anim.SetBool("bRight", true);
+                anim.SetBool("bLeft", false);
+                anim.SetBool("Up", false);
+                anim.SetBool("Down", false);
+                anim.SetBool("Right", false);
+                anim.SetBool("Left", false);
+
+            }
         }
         else
         {
-            //Debug.Log("Right");
-            anim.SetBool("Up", false);
-            anim.SetBool("Down", false);
-            anim.SetBool("Right", true);
-            anim.SetBool("Left", false);
-            //slasher.transform.position = (Vector3) playerPos +new Vector3(3.98f, 0, 0);
-            //slasher.transform.eulerAngles = new Vector3(0, 0, 180);
+            if ((Mathf.Abs(mousePos.x - playerPos.x) < Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.y - playerPos.y > 0))
+            {
+                //Debug.Log("Up");
+                anim.SetBool("bUp", false);
+                anim.SetBool("bDown", false);
+                anim.SetBool("bRight", false);
+                anim.SetBool("bLeft", false);
+                anim.SetBool("Up", true);
+                anim.SetBool("Down", false);
+                anim.SetBool("Right", false);
+                anim.SetBool("Left", false);
+
+
+            }
+            else if ((Mathf.Abs(mousePos.x - playerPos.x) > Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.x - playerPos.x < 0))
+            {
+                //Debug.Log("Left");
+                anim.SetBool("bUp", false);
+                anim.SetBool("bDown", false);
+                anim.SetBool("bRight", false);
+                anim.SetBool("bLeft", false);
+                anim.SetBool("Up", false);
+                anim.SetBool("Down", false);
+                anim.SetBool("Right", false);
+                anim.SetBool("Left", true);
+
+            }
+            else if ((Mathf.Abs(mousePos.x - playerPos.x) < Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.y - playerPos.y < 0))
+            {
+                //Debug.Log("Down");
+                anim.SetBool("bUp", false);
+                anim.SetBool("bDown", false);
+                anim.SetBool("bRight", false);
+                anim.SetBool("bLeft", false);
+                anim.SetBool("Up", false);
+                anim.SetBool("Down", true);
+                anim.SetBool("Right", false);
+                anim.SetBool("Left", false);
+
+            }
+            else
+            {
+                //Debug.Log("Right");
+                anim.SetBool("bUp", false);
+                anim.SetBool("bDown", false);
+                anim.SetBool("bRight", false);
+                anim.SetBool("bLeft", false);
+                anim.SetBool("Up", false);
+                anim.SetBool("Down", false);
+                anim.SetBool("Right", true);
+                anim.SetBool("Left", false);
+
+            }
         }
+        
     }
 }

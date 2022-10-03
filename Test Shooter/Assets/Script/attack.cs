@@ -106,7 +106,6 @@ public class attack : MonoBehaviour
         if(refresh && list[selectedWeapon].type == Arme.Type.Slash)
         {
             timeattact += list[selectedWeapon].attackSpeed;
-            print(timeattact + "    " + slash.transform.localRotation.z + "   " + refresh);
             slash.transform.localRotation = Quaternion.Euler(0, 0, timeattact);
             if(slash.transform.localEulerAngles.z >= list[selectedWeapon].maxAngleAttack - 45)
             {
