@@ -17,7 +17,7 @@ public class Upgrade : MonoBehaviour
 
     public Button button;
     public Image image;
-
+    public Berserk berserker;
     void Start()
     {
         skillpoint = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -57,7 +57,11 @@ public class Upgrade : MonoBehaviour
     }
     public void setSpeed(float sped)
     {
-        skillpoint.speedPlayer = sped;
+        skillpoint.speedPlayer += sped;
+    }
+    public void setBerserk(bool berserk)
+    {
+        berserker.berserk = berserk;
     }
     public void AddLife()
     {

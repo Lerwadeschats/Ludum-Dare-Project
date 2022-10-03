@@ -89,9 +89,9 @@ public class PlayerController : MonoBehaviour
         }
         
 
-        /*Vector2 lookDir = mousePos - rbPlayer.position;
+        Vector2 lookDir = mousePos - rbPlayer.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rbPlayer.rotation = angle;*/
+        rbPlayer.rotation = angle;
     }
     public  IEnumerator Dashing()
     {
