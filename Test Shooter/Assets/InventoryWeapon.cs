@@ -7,6 +7,7 @@ public class InventoryWeapon : MonoBehaviour
 {
     public List<attack.Arme> weapons = new List<attack.Arme>();
     public GameObject[] weaponsSlots;
+    public int weaponUsedID;
 
     void Start()
     {
@@ -18,8 +19,23 @@ public class InventoryWeapon : MonoBehaviour
     {
         for (int i = 0; i < weapons.Count; i++)
         {
-            weaponsSlots[i].transform.GetChild(0).GetComponent<Image>().sprite = weapons[i].sprite;
+            weaponsSlots[i].transform.GetChild(3).GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            weaponsSlots[i].transform.GetChild(3).GetComponent<Image>().sprite = weapons[i].sprite;
         }
+
+        for(int i = 0; i < weapons.Count; i++)
+        {
+            if(weapons[i] != null && i == weaponUsedID)
+            {
+                weaponsSlots[i].transform.GetChild(1).gameObject.SetActive(true);
+            }
+            else
+            {
+                weaponsSlots[i].transform.GetChild(1).gameObject.SetActive(false);
+            }
+        }
+        
+
     }
 
     

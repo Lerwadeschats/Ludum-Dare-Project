@@ -22,6 +22,8 @@ public class attack : MonoBehaviour
 
     bool refresh = false;
 
+    public InventoryWeapon inventory;
+
     void Start()
     {
 
@@ -30,6 +32,8 @@ public class attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        inventory.weaponUsedID = selectedWeapon;
+        AddWeaponToInventory();
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             selectedWeapon = 0;
@@ -134,6 +138,7 @@ public class attack : MonoBehaviour
         public enum Type { Tire, Corps, Slash, Else };
         public Type type = Type.Corps;
         public Sprite sprite;
+        public bool isObtained;
         [Header("Common")]
         public float reoladTime;
         public float damage;
@@ -142,7 +147,6 @@ public class attack : MonoBehaviour
         public float timeShake;
         [Space]
         public List<AudioClip> attakSound;
-        
         [Space]
         [Header("Bullets")]
         public GameObject bullets;
@@ -159,6 +163,19 @@ public class attack : MonoBehaviour
         [Range(90,180)]
         public int maxAngleAttack;
         public int attackSpeed;
+    }
+
+    public void AddWeaponToInventory()
+    {
+        
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i].isObtained)
+            {
+                inventory.weapons.Add(list[i]);
+                list[i].isObtained = false;
+            }
+        }
     }
 
    
