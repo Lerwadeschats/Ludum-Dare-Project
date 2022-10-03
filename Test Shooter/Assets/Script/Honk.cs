@@ -11,10 +11,11 @@ public class Honk : MonoBehaviour
     GameObject[] enemies;
     public AudioClip honkAudio;
     public AudioSource oui;
+    bool canBeDestroyed;
     private void Start()
     {
         numberEnemies = GameObject.FindGameObjectWithTag("WaveSystem").GetComponent<WaveSystem>();
-        
+        canBeDestroyed = false;
     }
     void Update()
     {
@@ -38,12 +39,26 @@ public class Honk : MonoBehaviour
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject enemy in enemies)
         {
-            Destroy(enemy);               
+            enemy.GetComponent<Animator>().SetBool("EnemyDeath", true);
+            enemy.GetComponent<EnemyMovements>().enemySpeed = 0;
+            enemy.GetComponent<Rigidbody2D>().isKinematic = true;
+            StartCoroutine(CountdownDeath());
+            if (canBeDestroyed)
+            {
+                Destroy(enemy);
+            }
+                             
         }
     }
     IEnumerator CooldownHonk()
     {
         yield return new WaitForSeconds(cooldown);
         inCooldown = false;
+    }
+
+    IEnumerator CountdownDeath()
+    {
+        yield return new WaitForSeconds(2f);
+        canBeDestroyed = true;
     }
 }

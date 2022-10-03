@@ -15,6 +15,7 @@ public class EnemyMovements : MonoBehaviour
 
     WaveSystem waveSys;
 
+    bool canBeDestroyed;
 
     GameObject player;
 
@@ -28,6 +29,7 @@ public class EnemyMovements : MonoBehaviour
         heart = FindObjectOfType<Heart>();
         anim = gameObject.GetComponent<Animator>();
         anim.Play("EnemySide");
+        canBeDestroyed = false;
     }
 
     void Update()
@@ -62,22 +64,29 @@ public class EnemyMovements : MonoBehaviour
 
     public void Death()
     {
-        if(enemyExp >= 50)
+        anim.SetBool("EnemyDeath", true);
+        enemySpeed = 0;
+        StartCoroutine(CountdownDeath());
+        if (canBeDestroyed)
         {
-            for(int i = 0; i < enemyExp/50; i++)
+            if (enemyExp >= 50)
             {
-                Instantiate(bigExpPoint, gameObject.transform.position, bigExpPoint.transform.rotation);
+                for (int i = 0; i < enemyExp / 50; i++)
+                {
+                    Instantiate(bigExpPoint, gameObject.transform.position, bigExpPoint.transform.rotation);
+                }
             }
-        }
-        else
-        {
-            for (int i = 0; i < enemyExp / 10; i++)
+            else
             {
-                Instantiate(littleExpPoint, gameObject.transform.position, littleExpPoint.transform.rotation);
+                for (int i = 0; i < enemyExp / 10; i++)
+                {
+                    Instantiate(littleExpPoint, gameObject.transform.position, littleExpPoint.transform.rotation);
+                }
             }
+            waveSys.numberOfEnemies--;
+            Destroy(gameObject);
         }
-        waveSys.numberOfEnemies--;
-        Destroy(gameObject);
+        
         
     }
 
@@ -116,6 +125,12 @@ public class EnemyMovements : MonoBehaviour
             anim.SetBool("EnemyDown", false);
             anim.SetBool("EnemySide", true);
         }
+    }
+
+    IEnumerator CountdownDeath()
+    {
+        yield return new WaitForSeconds(2f);
+        canBeDestroyed = true;
     }
 
 }

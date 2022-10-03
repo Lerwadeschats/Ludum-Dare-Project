@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
     {
         /*Time.timeScale = 0;*/
         Destroy(gameObject.transform.GetChild(1).GetComponent<alors>());
+        gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
         isDying = true;
         anim.SetBool("Dead", true);
         waveSystem.EndGame();
