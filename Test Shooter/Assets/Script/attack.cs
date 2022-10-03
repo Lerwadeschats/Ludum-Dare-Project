@@ -39,6 +39,10 @@ public class attack : MonoBehaviour
             selectedWeapon = 1;
 
         }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            selectedWeapon = 2;
+        }
         if (Input.GetMouseButtonDown(0) && refresh == false && list[selectedWeapon].type == Arme.Type.Tire)
         {
             refresh = true;
