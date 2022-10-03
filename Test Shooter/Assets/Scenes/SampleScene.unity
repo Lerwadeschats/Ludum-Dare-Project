@@ -272,6 +272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 0
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 584312489}
   - {fileID: 1477503372}
@@ -372,6 +374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 1
   isLocked: 0
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 12245808}
   - {fileID: 1317489881}
@@ -1123,6 +1127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 576672115}
   dependsOn: {fileID: 0}
@@ -1314,6 +1320,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 576672115}
   dependsOn: {fileID: 0}
@@ -1630,6 +1638,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 598214367}
+  coeur: {fileID: 360705419}
   lookForward:
   - {fileID: 248267276}
   - {fileID: 248435885}
@@ -3033,6 +3043,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 598214367}
+  coeur: {fileID: 360705419}
   lookForward:
   - {fileID: 1136051143}
   - {fileID: 1374016688}
@@ -3201,6 +3213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 2105221921}
   dependsOn: {fileID: 0}
@@ -3763,6 +3777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 1621160592}
   - {fileID: 1084005152}
@@ -4581,6 +4597,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward: []
   dependsOn: {fileID: 0}
   lockMe: {fileID: 0}
@@ -4858,6 +4876,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 985309231}
   dependsOn: {fileID: 0}
@@ -5285,6 +5305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 598214367}
+  coeur: {fileID: 360705419}
   lookForward:
   - {fileID: 1318023980}
   dependsOn: {fileID: 0}
@@ -5890,6 +5912,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 0
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 1499216403}
   - {fileID: 296537553}
@@ -6046,6 +6070,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 584312489}
   - {fileID: 1477503372}
@@ -6238,6 +6264,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 1318023980}
   dependsOn: {fileID: 0}
@@ -6557,6 +6585,8 @@ MonoBehaviour:
   expBar: {fileID: 810790444}
   rbPlayer: {fileID: 1414350117}
   cam: {fileID: 519420031}
+  dashPower: 50
+  dashCooldown: 1
   waveSystem: {fileID: 867583394}
 --- !u!50 &1414350117
 Rigidbody2D:
@@ -7218,6 +7248,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 2105221921}
   dependsOn: {fileID: 0}
@@ -7296,6 +7328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 248267276}
   - {fileID: 248435885}
@@ -8250,6 +8284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 985309231}
   dependsOn: {fileID: 0}
@@ -10038,6 +10074,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuyed: 0
   isLocked: 1
+  heart: {fileID: 0}
+  coeur: {fileID: 0}
   lookForward:
   - {fileID: 833837192}
   dependsOn: {fileID: 0}

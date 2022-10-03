@@ -8,6 +8,8 @@ public class Upgrade : MonoBehaviour
     public bool isBuyed = false;
     public bool isLocked = true;
     private PlayerController skillpoint;
+    public GameObject heart;
+    public Image coeur;
 
     public List<Upgrade> lookForward;
     public Upgrade dependsOn;
@@ -45,7 +47,28 @@ public class Upgrade : MonoBehaviour
         }
         
     }
-    public void Lock()
+    public void setDash(float power)
+    {
+        skillpoint.dashPower = power;
+    }
+    public void setDASHCD(float CD)
+    {
+        skillpoint.dashCooldown = CD;
+    }
+    public void setSpeed(float sped)
+    {
+        skillpoint.speedPlayer = sped;
+    }
+    public void AddLife()
+    {
+        skillpoint.hpPlayer += 2;
+        var go = Instantiate(coeur, Vector3.zero, Quaternion.identity);
+        print(go.rectTransform.position.y);
+        go.rectTransform.parent = heart.transform;
+        print(go.rectTransform.position.y);
+        go.rectTransform.position = new Vector3(80 * heart.transform.childCount - 30, 1030);
+    }
+public void Lock()
     {
         image.color = Color.black;
         isLocked = true;

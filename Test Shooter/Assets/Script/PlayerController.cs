@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int speedPlayer;
+    public float speedPlayer;
     public int hpPlayer = 12;
     public float xpPlayer = 0;
     public int lvlPlayer = 1;
@@ -29,8 +29,8 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
     private bool enabledDash = false;
     private bool canDash = true;
-    private float dashPower = 50f;
-    private float dashCooldown = 1;
+    public float dashPower = 50f;
+    public float dashCooldown = 1;
     private float dashTime = 0.1f;
 
     public WaveSystem waveSystem;
