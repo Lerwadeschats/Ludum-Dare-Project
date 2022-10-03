@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isDashing = false;
     private bool enabledDash = false;
-    private bool canDash = true;
+    private bool canDash;
     public float dashPower = 50f;
     public float dashCooldown = 1;
     private float dashTime = 0.1f;
@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
         //slasher = gameObject.transform.Find("Slasher").gameObject;
         isDying = false;
         exp = expBar.GetComponent<ExpBar>();
+        canDash = false;
 
     }
 

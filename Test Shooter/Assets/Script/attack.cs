@@ -57,6 +57,7 @@ public class attack : MonoBehaviour
             {
                 var bullets = Instantiate(list[selectedWeapon].bullets);
                 bullets.transform.position = bulletsOut.position;
+                
                 bullets.GetComponent<DamagesCollision>().damages = list[selectedWeapon].damage;
 
 
