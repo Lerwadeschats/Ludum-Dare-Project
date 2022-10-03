@@ -19,7 +19,7 @@ public class Upgrade : MonoBehaviour
     public Button button;
     public Image image;
     public Berserk berserker;
-
+    public Honk honker;
     void Start()
     {
         attakc = GameObject.FindGameObjectWithTag("Player").GetComponent<attack>();
@@ -57,7 +57,7 @@ public class Upgrade : MonoBehaviour
             attakc.csAAA.transform.localScale = new Vector3(12, 12, 12);
             print(attakc.csAAA.transform.localScale.z);
         }
-        else if(attakc.Cscount == 1)
+        else if (attakc.Cscount == 1)
         {
             attakc.csAAA.transform.localScale = new Vector3(20, 20, 20);
         }
@@ -85,7 +85,20 @@ public class Upgrade : MonoBehaviour
         }
 
         attakc.sgcount += 1;
-        //print(attakc.sgcount);
+        print(attakc.sgcount);
+    }
+    public void Ray()
+    {
+        if (attakc.WallCount == 0)
+        {
+            attakc.list[2].bulletShoted = 1;
+        }
+        else
+        {
+            attakc.list[2].speed = 30;
+            attakc.list[2].reoladTime = 8;
+        }
+        attakc.WallCount += 1;
     }
     public void setDash(float power)
     {
@@ -102,6 +115,10 @@ public class Upgrade : MonoBehaviour
     public void setBerserk(bool berserk)
     {
         berserker.berserk = berserk;
+    }
+    public void setHonk(bool honk)
+    {
+        honker.honkEnabled = honk;
     }
     public void AddLife()
     {

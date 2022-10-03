@@ -9,6 +9,7 @@ public class attack : MonoBehaviour
     public int selectedWeapon = 0;
     public int sgcount = 0;
     public int Cscount = 0;
+    public int WallCount = 0;
     public GameObject csAAA;
     public CamShake cam;
 
@@ -125,7 +126,6 @@ public class attack : MonoBehaviour
             StartCoroutine(ReloadTime());
         }
     }
-
     public IEnumerator ReloadTime()
     {
         

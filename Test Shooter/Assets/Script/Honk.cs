@@ -12,27 +12,31 @@ public class Honk : MonoBehaviour
     public AudioClip honkAudio;
     public AudioSource oui;
     bool canBeDestroyed;
+    public bool honkEnabled;
     private void Start()
     {
         numberEnemies = GameObject.FindGameObjectWithTag("WaveSystem").GetComponent<WaveSystem>();
         canBeDestroyed = false;
+        honkEnabled = false;
     }
     void Update()
     {
         number = numberEnemies.numberOfEnemies;
-        if (Input.GetMouseButtonDown(1) && inCooldown == false)
+        if (honkEnabled)
         {
-                        for (int i = 0; i < number; i++)
+            if (Input.GetMouseButtonDown(1) && inCooldown == false)
             {
-                numberEnemies.numberOfEnemies--;
+                for (int i = 0; i < number; i++)
+                {
+                    numberEnemies.numberOfEnemies--;
+                }
+                oui.PlayOneShot(honkAudio);
+                inCooldown = true;
+                DestroyEnemies();
+                StartCoroutine(CooldownHonk());
+
             }
-            oui.PlayOneShot(honkAudio);
-            inCooldown = true;
-            DestroyEnemies();
-            StartCoroutine(CooldownHonk());
-
         }
-
     }
     public void DestroyEnemies()
     {

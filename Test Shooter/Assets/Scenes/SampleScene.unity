@@ -294,6 +294,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!1 &27755173
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,6 +398,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &27755178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1150,6 +1152,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &248267277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1344,6 +1347,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &248435886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1664,6 +1668,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &296537554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3070,6 +3075,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &576672116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3252,6 +3258,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &584312490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3302,7 +3309,7 @@ GameObject:
   - component: {fileID: 598214369}
   m_Layer: 5
   m_Name: Heart
-  m_TagString: Untagged
+  m_TagString: Hearts
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3703,6 +3710,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &833837193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4637,6 +4645,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 985309231}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
+        m_MethodName: setHonk
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &985309231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4659,6 +4679,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 1414350123}
 --- !u!114 &985309232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4952,6 +4973,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &1084005153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5382,6 +5404,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &1136051144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6122,6 +6145,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &1317489882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6257,6 +6281,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1318023980}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
+        m_MethodName: setBerserk
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1318023980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6280,7 +6316,8 @@ MonoBehaviour:
   lockMe: {fileID: 0}
   button: {fileID: 0}
   image: {fileID: 0}
-  berserker: {fileID: 0}
+  berserker: {fileID: 1414350124}
+  honker: {fileID: 0}
 --- !u!114 &1318023981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6475,6 +6512,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &1374016689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6744,6 +6782,7 @@ GameObject:
   - component: {fileID: 1414350121}
   - component: {fileID: 1414350122}
   - component: {fileID: 1414350123}
+  - component: {fileID: 1414350124}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6828,6 +6867,7 @@ MonoBehaviour:
   selectedWeapon: 1
   sgcount: 0
   Cscount: 0
+  WallCount: 0
   csAAA: {fileID: 1205906273}
   cam: {fileID: 519420034}
   slash: {fileID: 961480431}
@@ -6885,7 +6925,7 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     bullets: {fileID: 4170746205163498040, guid: 26ec41d2d8624214eba5b45826349d54, type: 3}
-    bulletShoted: 1
+    bulletShoted: 0
     spreadness: 0
     speed: 0
     lifeTime: 3
@@ -7040,6 +7080,20 @@ MonoBehaviour:
   number: 0
   honkAudio: {fileID: 8300000, guid: 7261e3b0f8d4f414f834c82141c37d52, type: 3}
   oui: {fileID: 1414350120}
+  honkEnabled: 0
+--- !u!114 &1414350124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414350113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919e315d82b0ed043a664d550eb3d435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  berserk: 0
 --- !u!1 &1434907002
 GameObject:
   m_ObjectHideFlags: 0
@@ -7490,6 +7544,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &1477503373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7572,6 +7627,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &1499216404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8536,6 +8592,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1621160592}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
+        m_MethodName: Ray
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1621160592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8559,6 +8627,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &1621160593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10134,6 +10203,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2105221921}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
+        m_MethodName: Ray
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2105221921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10157,6 +10238,7 @@ MonoBehaviour:
   button: {fileID: 0}
   image: {fileID: 0}
   berserker: {fileID: 0}
+  honker: {fileID: 0}
 --- !u!114 &2105221922
 MonoBehaviour:
   m_ObjectHideFlags: 0
