@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float xpPlayer = 0;
     public int lvlPlayer = 1;
     float xpNeeded = 100;
+    public int skillPoint=0;
 
     public GameObject expBar;
     ExpBar exp;
@@ -114,7 +115,7 @@ public class PlayerController : MonoBehaviour
         lvlPlayer += 1;
         xpPlayer -= xpNeeded;
         xpNeeded = (xpNeeded + 50) * 1.3f;
-        //Arbre compétence + 1 choix
+        skillPoint++;
     }
 
     public void Death()

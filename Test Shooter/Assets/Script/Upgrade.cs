@@ -7,6 +7,7 @@ public class Upgrade : MonoBehaviour
 {
     public bool isBuyed = false;
     public bool isLocked = true;
+    private PlayerController skillpoint;
 
     public List<Upgrade> lookForward;
     public Upgrade dependsOn;
@@ -17,25 +18,32 @@ public class Upgrade : MonoBehaviour
 
     void Start()
     {
+        skillpoint = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         button = GetComponent<Button>();
         image = GetComponent<Image>();
         if (isLocked)
         {
             image.color = Color.black;
         }
+        
     }
 
     public void Buy()
     {
-        isBuyed = true;
-        button.enabled = false;
-        for(int i = 0; i < lookForward.Count; i++)
+        if (skillpoint.skillPoint > 0)
         {
-            lookForward[i].isLocked = false;
-            lookForward[i].button.enabled = true;
-            lookForward[i].image.color = Color.white;
+            isBuyed = true;
+            button.enabled = false;
+            for (int i = 0; i < lookForward.Count; i++)
+            {
+                lookForward[i].isLocked = false;
+                lookForward[i].button.enabled = true;
+                lookForward[i].image.color = Color.white;
 
+            }
+            skillpoint.skillPoint--;
         }
+        
     }
     public void Lock()
     {
