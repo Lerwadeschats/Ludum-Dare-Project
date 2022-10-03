@@ -95,7 +95,7 @@ public class attack : MonoBehaviour
             }
             refresh = true;
             trail.enabled = true;
-            //StartCoroutine(ReloadTime());
+            StartCoroutine(ReloadTime());
         }
         if(refresh && list[selectedWeapon].type == Arme.Type.Slash)
         {
