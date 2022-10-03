@@ -5315,7 +5315,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6505,6 +6505,7 @@ GameObject:
   - component: {fileID: 1414350120}
   - component: {fileID: 1414350121}
   - component: {fileID: 1414350122}
+  - component: {fileID: 1414350123}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6542,7 +6543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87204767c3b84424ea4b6a9e40d38784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedPlayer: 0
+  speedPlayer: 6
   hpPlayer: 12
   xpPlayer: 0
   lvlPlayer: 1
@@ -6784,6 +6785,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1414350123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414350113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885ad75ce17a7a84384cfa34d7f06dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 0
+  honkAudio: {fileID: 8300000, guid: 7261e3b0f8d4f414f834c82141c37d52, type: 3}
+  oui: {fileID: 1414350120}
 --- !u!1 &1434907002
 GameObject:
   m_ObjectHideFlags: 0
@@ -8403,7 +8419,7 @@ Transform:
   - {fileID: 393125911}
   - {fileID: 1134314669}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1774137303
 GameObject:
@@ -9911,7 +9927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2100822588
 Transform:
   m_ObjectHideFlags: 0
