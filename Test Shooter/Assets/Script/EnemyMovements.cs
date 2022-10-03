@@ -48,6 +48,7 @@ public class EnemyMovements : MonoBehaviour
             player.GetComponent<PlayerController>().hpPlayer -= 1;
 
         }
+        AnimationEnemy();
     }
 
     private void FixedUpdate()
@@ -82,23 +83,26 @@ public class EnemyMovements : MonoBehaviour
 
     public void AnimationEnemy()
     {
-        if ((Mathf.Abs(player.transform.position.x) < Mathf.Abs(player.transform.position.y)) && (player.transform.position.y > 0))
+        if ((Mathf.Abs(player.transform.position.x - gameObject.transform.position.x) < Mathf.Abs(player.transform.position.y - gameObject.transform.position.y)) && (player.transform.position.y - gameObject.transform.position.y > 0))
         {
+            Debug.Log("Enemy Up");
             gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
             anim.SetBool("EnemyUp", true);
             anim.SetBool("EnemyDown", false);
             anim.SetBool("EnemySide", false);
 
         }
-        else if ((Mathf.Abs(player.transform.position.x) > Mathf.Abs(player.transform.position.y)) && (player.transform.position.x < 0))
+        else if ((Mathf.Abs(player.transform.position.x - gameObject.transform.position.x) > Mathf.Abs(player.transform.position.y - gameObject.transform.position.y)) && (player.transform.position.x - gameObject.transform.position.x < 0))
         {
+            Debug.Log("Enemy Left");
             gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
             anim.SetBool("EnemyUp", false);
             anim.SetBool("EnemyDown", false);
             anim.SetBool("EnemySide", true);
         }
-        else if ((Mathf.Abs(player.transform.position.x) < Mathf.Abs(player.transform.position.y)) && (player.transform.position.y < 0))
+        else if ((Mathf.Abs(player.transform.position.x - gameObject.transform.position.x) < Mathf.Abs(player.transform.position.y - gameObject.transform.position.y)) && (player.transform.position.y - gameObject.transform.position.y < 0))
         {
+            Debug.Log("Enemy Down");
             gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
             anim.SetBool("EnemyUp", false);
             anim.SetBool("EnemyDown", true);
@@ -106,6 +110,7 @@ public class EnemyMovements : MonoBehaviour
         }
         else
         {
+            Debug.Log("Enemy Right");
             gameObject.transform.GetComponent<SpriteRenderer>().flipX = true;
             anim.SetBool("EnemyUp", false);
             anim.SetBool("EnemyDown", false);

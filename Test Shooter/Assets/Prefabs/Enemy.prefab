@@ -128,9 +128,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHP: 10
   enemyDamages: 0
-  enemySpeed: 8
+  enemySpeed: 5
   enemyStartSpawningWave: 1
-  enemyExp: 20
+  enemyExp: 10
   littleExpPoint: {fileID: 9143646825448322046, guid: 79ee7cf0526f7bd42898b5c83961bb55, type: 3}
   bigExpPoint: {fileID: 9143646825448322046, guid: 5d23326f84f95fd4ea5df061571795a8, type: 3}
 --- !u!50 &3272856481314742546
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &-7476387033424213135
 Animator:
   serializedVersion: 4
