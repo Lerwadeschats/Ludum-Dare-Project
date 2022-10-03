@@ -8,6 +8,7 @@ public class Upgrade : MonoBehaviour
     public bool isBuyed = false;
     public bool isLocked = true;
     private PlayerController skillpoint;
+    private attack attakc;
     public GameObject heart;
     public Image coeur;
 
@@ -18,8 +19,10 @@ public class Upgrade : MonoBehaviour
     public Button button;
     public Image image;
     public Berserk berserker;
+
     void Start()
     {
+        attakc = GameObject.FindGameObjectWithTag("Player").GetComponent<attack>();
         skillpoint = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         button = GetComponent<Button>();
         image = GetComponent<Image>();
@@ -46,6 +49,30 @@ public class Upgrade : MonoBehaviour
             skillpoint.skillPoint--;
         }
         
+    }
+    public void shotgun()
+    {
+        if (attakc.sgcount == 0)
+        {
+            attakc.list[0].bulletShoted = 3;
+            attakc.list[0].spreadness = 5;
+            attakc.list[0].camshake = 0.25f;
+        }
+        else if (attakc.sgcount == 1)
+        {
+            attakc.list[0].bulletShoted = 7;
+            attakc.list[0].spreadness = 15;
+            attakc.list[0].camshake = 1f;
+        }
+        else
+        {
+            attakc.list[0].bulletShoted = 30;
+            attakc.list[0].spreadness = 30;
+            attakc.list[0].camshake = 2f;
+        }
+
+        attakc.sgcount += 1;
+        print(attakc.sgcount);
     }
     public void setDash(float power)
     {
