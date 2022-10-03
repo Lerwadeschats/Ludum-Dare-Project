@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - WaveSystem
   - hurtbox
+  - Hearts
   layers:
   - Default
   - TransparentFX

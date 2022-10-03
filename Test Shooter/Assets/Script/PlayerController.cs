@@ -87,11 +87,6 @@ public class PlayerController : MonoBehaviour
             }
             rbPlayer.MovePosition(rbPlayer.position + movement * speedPlayer * Time.fixedDeltaTime);
         }
-        
-
-        Vector2 lookDir = mousePos - rbPlayer.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rbPlayer.rotation = angle;
     }
     public  IEnumerator Dashing()
     {
