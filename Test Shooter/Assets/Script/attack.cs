@@ -134,6 +134,7 @@ public class attack : MonoBehaviour
         public string name = "";
         public enum Type { Tire, Corps, Slash, Else };
         public Type type = Type.Corps;
+        public Sprite sprite;
         [Header("Common")]
         public float reoladTime;
         public float damage;
