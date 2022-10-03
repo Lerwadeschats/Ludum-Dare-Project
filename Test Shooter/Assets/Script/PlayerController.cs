@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public int lvlPlayer = 1;
     float xpNeeded = 100;
 
+    public GameObject expBar;
+    ExpBar exp;
+
     public Rigidbody2D rbPlayer;
     public Camera cam;
     Animator anim;
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour
         anim.Play("playerLeft");
         //slasher = gameObject.transform.Find("Slasher").gameObject;
         isDying = false;
+        exp = expBar.GetComponent<ExpBar>();
     }
 
     // Update is called once per frame
@@ -62,7 +66,9 @@ public class PlayerController : MonoBehaviour
         {
             GainLevel();
         }
-
+        exp.currentValue = xpPlayer;
+        exp.maxValue = xpNeeded;
+        exp.levelNumber = lvlPlayer;
         if (!isDying)
         {
             AnimationPlayer(mousePos);
@@ -101,6 +107,7 @@ public class PlayerController : MonoBehaviour
     public void GainExp(float expGained)
     {
         xpPlayer += expGained;
+        
     }
     public void GainLevel()
     {
