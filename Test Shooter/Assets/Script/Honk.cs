@@ -42,6 +42,7 @@ public class Honk : MonoBehaviour
             enemy.GetComponent<Animator>().SetBool("EnemyDeath", true);
             enemy.GetComponent<EnemyMovements>().enemySpeed = 0;
             enemy.GetComponent<Rigidbody2D>().isKinematic = true;
+            Destroy(gameObject.GetComponent<BoxCollider2D>());
             StartCoroutine(CountdownDeath());
             if (canBeDestroyed)
             {

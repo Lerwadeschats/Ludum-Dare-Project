@@ -66,6 +66,8 @@ public class EnemyMovements : MonoBehaviour
     {
         anim.SetBool("EnemyDeath", true);
         enemySpeed = 0;
+        gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+        Destroy(gameObject.GetComponent<BoxCollider2D>());
         StartCoroutine(CountdownDeath());
         if (canBeDestroyed)
         {
