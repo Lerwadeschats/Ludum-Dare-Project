@@ -6393,6 +6393,24 @@ MonoBehaviour:
     minAngleAttack: 45
     maxAngleAttack: 130
     attackSpeed: 3
+  - name: LAZER
+    type: 0
+    reoladTime: 20
+    damage: 10
+    camshake: 1
+    timeShake: 1
+    attakSound:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    bullets: {fileID: 4170746205163498040, guid: 26ec41d2d8624214eba5b45826349d54, type: 3}
+    bulletShoted: 1
+    spreadness: 0
+    speed: 0
+    lifeTime: 3
+    minAngleAttack: 45
+    maxAngleAttack: 180
+    attackSpeed: 15
 --- !u!82 &1414350120
 AudioSource:
   m_ObjectHideFlags: 0
