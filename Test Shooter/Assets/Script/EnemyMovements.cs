@@ -15,9 +15,10 @@ public class EnemyMovements : MonoBehaviour
 
     WaveSystem waveSys;
 
-    Rigidbody2D rbEnemy;
 
     GameObject player;
+
+    Animator anim;
 
     Heart heart;
     void Start()
@@ -25,16 +26,19 @@ public class EnemyMovements : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         waveSys = GameObject.FindGameObjectWithTag("WaveSystem").GetComponent<WaveSystem>();
         heart = FindObjectOfType<Heart>();
+        anim = gameObject.GetComponent<Animator>();
+        anim.Play("EnemySide");
     }
 
     void Update()
     {
-        if(enemyHP <= 0)
+        if (enemyHP <= 0)
         {
             
             Death();
         }
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
+        gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -44,6 +48,11 @@ public class EnemyMovements : MonoBehaviour
             player.GetComponent<PlayerController>().hpPlayer -= 1;
 
         }
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
     public void TakeDamages(float damages)
     {
@@ -69,6 +78,39 @@ public class EnemyMovements : MonoBehaviour
         waveSys.numberOfEnemies--;
         Destroy(gameObject);
         
+    }
+
+    public void AnimationEnemy()
+    {
+        if ((Mathf.Abs(player.transform.position.x) < Mathf.Abs(player.transform.position.y)) && (player.transform.position.y > 0))
+        {
+            gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
+            anim.SetBool("EnemyUp", true);
+            anim.SetBool("EnemyDown", false);
+            anim.SetBool("EnemySide", false);
+
+        }
+        else if ((Mathf.Abs(player.transform.position.x) > Mathf.Abs(player.transform.position.y)) && (player.transform.position.x < 0))
+        {
+            gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
+            anim.SetBool("EnemyUp", false);
+            anim.SetBool("EnemyDown", false);
+            anim.SetBool("EnemySide", true);
+        }
+        else if ((Mathf.Abs(player.transform.position.x) < Mathf.Abs(player.transform.position.y)) && (player.transform.position.y < 0))
+        {
+            gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
+            anim.SetBool("EnemyUp", false);
+            anim.SetBool("EnemyDown", true);
+            anim.SetBool("EnemySide", false);
+        }
+        else
+        {
+            gameObject.transform.GetComponent<SpriteRenderer>().flipX = true;
+            anim.SetBool("EnemyUp", false);
+            anim.SetBool("EnemyDown", false);
+            anim.SetBool("EnemySide", true);
+        }
     }
 
 }
