@@ -8,6 +8,8 @@ public class attack : MonoBehaviour
     
     public int selectedWeapon = 0;
     public int sgcount = 0;
+    public int Cscount = 0;
+    public GameObject csAAA;
     public CamShake cam;
 
     public GameObject slash;

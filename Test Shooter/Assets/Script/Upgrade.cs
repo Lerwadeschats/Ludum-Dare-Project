@@ -50,6 +50,19 @@ public class Upgrade : MonoBehaviour
         }
         
     }
+    public void tronco()
+    {
+        if (attakc.Cscount == 0)
+        {
+            attakc.csAAA.transform.localScale = new Vector3(12, 12, 12);
+            print(attakc.csAAA.transform.localScale.z);
+        }
+        else if(attakc.Cscount == 1)
+        {
+            attakc.csAAA.transform.localScale = new Vector3(20, 20, 20);
+        }
+        attakc.Cscount += 1;
+    }
     public void shotgun()
     {
         if (attakc.sgcount == 0)
@@ -72,7 +85,7 @@ public class Upgrade : MonoBehaviour
         }
 
         attakc.sgcount += 1;
-        print(attakc.sgcount);
+        //print(attakc.sgcount);
     }
     public void setDash(float power)
     {
