@@ -67,6 +67,7 @@ public class Upgrade : MonoBehaviour
     {
         if (attakc.sgcount == 0)
         {
+            attakc.list[0].isObtained = true;
             attakc.list[0].bulletShoted = 3;
             attakc.list[0].spreadness = 5;
             attakc.list[0].camshake = 0.25f;
@@ -91,6 +92,7 @@ public class Upgrade : MonoBehaviour
     {
         if (attakc.WallCount == 0)
         {
+            attakc.list[2].isObtained = true;
             attakc.list[2].bulletShoted = 1;
         }
         else

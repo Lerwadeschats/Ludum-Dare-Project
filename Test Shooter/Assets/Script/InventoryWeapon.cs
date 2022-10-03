@@ -10,19 +10,36 @@ public class InventoryWeapon : MonoBehaviour
     public GameObject[] weaponsSlots;
     public int weaponUsedID;
     public float reloadTimeLazer;
+    attack attakc;
+
 
     void Start()
     {
-        
+        attakc = GameObject.FindGameObjectWithTag("Player").GetComponent<attack>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        for(int i = 0; i < attakc.list.Count; i++)
+        {
+            if (attakc.list[i].isObtained && !attakc.list[i].isAlreadyInInventory)
+            {
+                weapons[attakc.list[i].ID] = attakc.list[i];
+            }
+        }
         for (int i = 0; i < weapons.Count; i++)
         {
-            weaponsSlots[i].transform.GetChild(2).GetComponent<Image>().color = new Color(1, 1, 1, 1);
-            weaponsSlots[i].transform.GetChild(2).GetComponent<Image>().sprite = weapons[i].sprite;
+            if (attakc.list[i].isAlreadyInInventory)
+            {
+                weaponsSlots[i].transform.GetChild(2).GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                weaponsSlots[i].transform.GetChild(2).GetComponent<Image>().sprite = weapons[i].sprite;
+            }
+            else
+            {
+                weaponsSlots[i].transform.GetChild(2).GetComponent<Image>().color = new Color(1, 1, 1, 0);
+            }
         }
 
         for(int i = 0; i < weapons.Count; i++)

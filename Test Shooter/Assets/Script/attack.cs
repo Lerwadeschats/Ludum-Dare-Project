@@ -29,7 +29,7 @@ public class attack : MonoBehaviour
 
     void Start()
     {
-
+        list[1].isObtained = true;
     }
 
     // Update is called once per frame
@@ -136,11 +136,13 @@ public class attack : MonoBehaviour
     [System.Serializable]
     public class Arme
     {
+        public int ID;
         public string name = "";
         public enum Type { Tire, Corps, Slash, Else };
         public Type type = Type.Corps;
         public Sprite sprite;
         public bool isObtained;
+        public bool isAlreadyInInventory;
         [Header("Common")]
         public float reoladTime;
         public float damage;
@@ -174,7 +176,7 @@ public class attack : MonoBehaviour
         {
             if (list[i].isObtained)
             {
-                inventory.weapons.Add(list[i]);
+                list[i].isAlreadyInInventory = true;
                 list[i].isObtained = false;
             }
         }
