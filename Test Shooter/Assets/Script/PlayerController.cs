@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public Camera cam;
     Animator anim;
 
+    bool isDying;
+
     Vector2 movement;
     Vector2 mousePos;
     Vector2 playerPos;
@@ -27,17 +29,25 @@ public class PlayerController : MonoBehaviour
     private float dashCooldown = 1;
     private float dashTime = 0.1f;
 
+    public WaveSystem waveSystem;
+
     void Start()
     {
         rbPlayer = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.transform.Find("Sprite").GetComponent<Animator>();
         anim.Play("playerLeft");
         //slasher = gameObject.transform.Find("Slasher").gameObject;
+        isDying = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(hpPlayer <= 0)
+        {
+            Death();
+        }
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -53,17 +63,24 @@ public class PlayerController : MonoBehaviour
             GainLevel();
         }
 
+        if (!isDying)
+        {
+            AnimationPlayer(mousePos);
+        }
         
-        AnimationPlayer(mousePos);
 
     }
     private void FixedUpdate()
     {
-        if (isDashing)
+        if (!isDying)
         {
-            return;
+            if (isDashing)
+            {
+                return;
+            }
+            rbPlayer.MovePosition(rbPlayer.position + movement * speedPlayer * Time.fixedDeltaTime);
         }
-        rbPlayer.MovePosition(rbPlayer.position + movement * speedPlayer * Time.fixedDeltaTime);
+        
 
         /*Vector2 lookDir = mousePos - rbPlayer.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
@@ -93,6 +110,14 @@ public class PlayerController : MonoBehaviour
         //Arbre compétence + 1 choix
     }
 
+    public void Death()
+    {
+        /*Time.timeScale = 0;*/
+        Destroy(gameObject.transform.GetChild(1).GetComponent<alors>());
+        isDying = true;
+        anim.SetBool("Dead", true);
+        waveSystem.EndGame();
+    }
     public void AnimationPlayer(Vector2 mousePos)
     {
         if ((Mathf.Abs(mousePos.x - playerPos.x) < Mathf.Abs(mousePos.y - playerPos.y)) && (mousePos.y - playerPos.y > 0))

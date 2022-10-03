@@ -32,39 +32,46 @@ public class WaveSystem : MonoBehaviour
     TextMeshProUGUI counterText;
 
     PlayerController player;
+
+    bool stopWave;
     void Start()
     {
         canSpawn = true;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         timeText = timer.transform.GetComponent<TextMeshProUGUI>();
         counterText = enemyCounter.transform.GetComponent<TextMeshProUGUI>();
+        stopWave = false;
     }
 
     void Update()
     {
         timeText.text = "Wave " + waveNumber + " in: " + timerWave;
         counterText.text = "Number of enemies: " + numberOfEnemies;
-        if (canSpawn)
+        if (!stopWave)
         {
-            
-            for (int i = 0; i < diffEnemies.Count; i++)
-            {
-                if (diffEnemies[i].GetComponent<EnemyMovements>().enemyStartSpawningWave == waveNumber)
-                {
-                    enemiesToSpawn.Add(diffEnemies[i]);
-                }
-            }
-            for(int i = 0; i < numberSpawnsFirstWave; i ++)
+            if (canSpawn)
             {
 
-                GameObject spawningEnemy = enemiesToSpawn[Random.Range(0, enemiesToSpawn.Count)];
-                numberOfEnemies++;
-                Instantiate(spawningEnemy, new Vector2(Random.Range(xMinMap, xMaxMap), Random.Range(yMinMap, yMaxMap)), spawningEnemy.transform.rotation);
-                
+                for (int i = 0; i < diffEnemies.Count; i++)
+                {
+                    if (diffEnemies[i].GetComponent<EnemyMovements>().enemyStartSpawningWave == waveNumber)
+                    {
+                        enemiesToSpawn.Add(diffEnemies[i]);
+                    }
+                }
+                for (int i = 0; i < numberSpawnsFirstWave; i++)
+                {
+
+                    GameObject spawningEnemy = enemiesToSpawn[Random.Range(0, enemiesToSpawn.Count)];
+                    numberOfEnemies++;
+                    Instantiate(spawningEnemy, new Vector2(Random.Range(xMinMap, xMaxMap), Random.Range(yMinMap, yMaxMap)), spawningEnemy.transform.rotation);
+
+                }
+                canSpawn = false;
+                StartCoroutine(Wave());
             }
-            canSpawn = false;
-            StartCoroutine(Wave());
         }
+        
         
     }
 
@@ -100,5 +107,14 @@ public class WaveSystem : MonoBehaviour
     void StartTimerWave()
     {
         StartCoroutine(TimerWave());
+    }
+
+    public void EndGame()
+    {
+        stopWave = true;
+        for(int i = 0; i < numberOfEnemies; i++)
+        {
+            Destroy(GameObject.FindWithTag("Enemy"));
+        }
     }
 }
