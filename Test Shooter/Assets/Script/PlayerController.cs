@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -35,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     public WaveSystem waveSystem;
 
+    public TextMeshProUGUI textSkillPoint;
+
     void Start()
     {
         rbPlayer = gameObject.GetComponent<Rigidbody2D>();
@@ -43,6 +47,7 @@ public class PlayerController : MonoBehaviour
         //slasher = gameObject.transform.Find("Slasher").gameObject;
         isDying = false;
         exp = expBar.GetComponent<ExpBar>();
+
     }
 
     // Update is called once per frame
@@ -74,7 +79,9 @@ public class PlayerController : MonoBehaviour
         {
             AnimationPlayer(mousePos);
         }
-        
+
+        textSkillPoint.text = "Skill points : " + skillPoint;
+
 
     }
     private void FixedUpdate()
@@ -121,6 +128,7 @@ public class PlayerController : MonoBehaviour
         isDying = true;
         anim.SetBool("Dead", true);
         waveSystem.EndGame();
+        StartCoroutine(GoToMenu());
     }
     public void AnimationPlayer(Vector2 mousePos)
     {
@@ -237,5 +245,11 @@ public class PlayerController : MonoBehaviour
             }
         }
         
+    }
+
+    IEnumerator GoToMenu()
+    {
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene("Menu");
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Upgrade : MonoBehaviour
 {
     public bool isBuyed = false;
@@ -20,6 +21,8 @@ public class Upgrade : MonoBehaviour
     public Image image;
     public Berserk berserker;
     public Honk honker;
+
+    
     void Start()
     {
         attakc = GameObject.FindGameObjectWithTag("Player").GetComponent<attack>();

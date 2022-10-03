@@ -46,8 +46,12 @@ public class EnemyMovements : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("hurtbox")   )
         {
-            heart.demic();
-            player.GetComponent<PlayerController>().hpPlayer -= 1;
+            if (!player.GetComponent<Berserk>().isBerserking)
+            {
+                heart.demic();
+                player.GetComponent<PlayerController>().hpPlayer -= 1;
+            }
+            
 
         }
         AnimationEnemy();
