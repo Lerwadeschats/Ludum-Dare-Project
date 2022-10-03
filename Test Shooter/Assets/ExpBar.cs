@@ -34,6 +34,6 @@ public class ExpBar : MonoBehaviour
         slider.value = currentValue;
         slider.maxValue = maxValue;
         levelText.text = "Lvl " + levelNumber;
-        expText.text = currentValue + " / " + maxValue;
+        expText.text = (int)currentValue + " / " + (int)maxValue;
     }
 }
