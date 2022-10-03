@@ -73,6 +73,7 @@ public class attack : MonoBehaviour
 
         if (list[selectedWeapon].type == Arme.Type.Slash)
         {
+            slash.transform.localRotation = Quaternion.Euler(0, 0, -45);
             ALLORS.enabled = true;
             slash.SetActive(true);
             if(timeattact == 0)
@@ -82,7 +83,6 @@ public class attack : MonoBehaviour
         }
         else
         {
-            //print("UNNNNNslash");
             slash.SetActive(false);
         }
         if (Input.GetMouseButtonDown(0) && refresh == false && list[selectedWeapon].type == Arme.Type.Slash)
@@ -94,15 +94,13 @@ public class attack : MonoBehaviour
             }
             refresh = true;
             trail.enabled = true;
-            StartCoroutine(ReloadTime());
+            //StartCoroutine(ReloadTime());
         }
         if(refresh && list[selectedWeapon].type == Arme.Type.Slash)
         {
-
             timeattact += list[selectedWeapon].attackSpeed;
+            print(timeattact + "    " + slash.transform.localRotation.z + "   " + refresh);
             slash.transform.localRotation = Quaternion.Euler(0, 0, timeattact);
-            //slash.transform.localEulerAngles += new Vector3(0, 0, slash.transform.localRotation.eulerAngles.z + list[selectedWeapon].attackSpeed);
-            //slash.transform.localEulerAngles += new Vector3(0, 0, list[selectedWeapon].attackSpeed);
             if(slash.transform.localEulerAngles.z >= list[selectedWeapon].maxAngleAttack - 45)
             {
                 ALLORS.enabled = true;
@@ -125,6 +123,7 @@ public class attack : MonoBehaviour
     public IEnumerator ReloadTime()
     {
         yield return new WaitForSeconds(list[selectedWeapon].reoladTime);
+        print("qtop");
         refresh = false;
     }
 

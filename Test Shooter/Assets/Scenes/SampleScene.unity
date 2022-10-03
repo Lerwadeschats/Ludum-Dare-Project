@@ -3789,7 +3789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &867583393
 Transform:
   m_ObjectHideFlags: 0
@@ -4259,6 +4259,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959591555}
   m_CullTransparentMesh: 1
+--- !u!1 &961480431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 961480432}
+  m_Layer: 0
+  m_Name: CACA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &961480432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961480431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1941569562}
+  m_Father: {fileID: 1434907003}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &985309228
 GameObject:
   m_ObjectHideFlags: 0
@@ -6321,7 +6353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedWeapon: 1
   cam: {fileID: 519420034}
-  slash: {fileID: 1941569561}
+  slash: {fileID: 961480431}
   trail: {fileID: 1941569563}
   ALLORS: {fileID: 1434907005}
   bulletsOut: {fileID: 1548324898}
@@ -6347,23 +6379,20 @@ MonoBehaviour:
     attackSpeed: 0
   - name: Slash
     type: 2
-    sprite: {fileID: 21300000, guid: e568e0cdb131cfd4f9d1e1e8a7fc2d24, type: 3}
-    reoladTime: 1
+    reoladTime: 2
     damage: 10
-    camshake: 1
-    timeShake: 1
+    camshake: 0.1
+    timeShake: 0.1
     attakSound:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 8300000, guid: a6afb65690cf29f44840160ed5542b6b, type: 3}
     bullets: {fileID: 0}
     bulletShoted: 0
     spreadness: 0
     speed: 0
     lifeTime: 0
     minAngleAttack: 45
-    maxAngleAttack: 180
-    attackSpeed: 15
+    maxAngleAttack: 130
+    attackSpeed: 3
 --- !u!82 &1414350120
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6527,7 +6556,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1548324898}
-  - {fileID: 1941569562}
+  - {fileID: 961480432}
   m_Father: {fileID: 1414350115}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8521,13 +8550,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941569561}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 7.66, z: -2.75}
-  m_LocalScale: {x: 7.58, y: 0.43, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 7.6600003, z: -2.7500002}
+  m_LocalScale: {x: 7.5800004, y: 0.43000004, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1434907003}
-  m_RootOrder: 1
+  m_Father: {fileID: 961480432}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!96 &1941569563
 TrailRenderer:
@@ -8537,12 +8566,12 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941569561}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
-  m_MotionVectors: 0
+  m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
@@ -8550,7 +8579,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8571,7 +8600,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -8580,20 +8609,29 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.48901176
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.7783019, g: 0.9807219, b: 1, a: 1}
+      key1: {r: 0.21226418, g: 0.9035426, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -8625,7 +8663,7 @@ TrailRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0.01
   m_Autodestruct: 0
   m_Emitting: 1
 --- !u!212 &1941569564
