@@ -116,7 +116,7 @@ public class attack : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && refresh == false && list[selectedWeapon].type == Arme.Type.Else)
+            if (Input.GetKeyDown(KeyCode.Space) && refresh == false && list[selectedWeapon].type == Arme.Type.Else)
         {
             refresh = true;
             //Attacks
@@ -126,6 +126,7 @@ public class attack : MonoBehaviour
 
     public IEnumerator ReloadTime()
     {
+        
         yield return new WaitForSeconds(list[selectedWeapon].reoladTime);
         print("qtop");
         refresh = false;
@@ -178,6 +179,7 @@ public class attack : MonoBehaviour
         }
     }
 
-   
+    
+
 }
 
